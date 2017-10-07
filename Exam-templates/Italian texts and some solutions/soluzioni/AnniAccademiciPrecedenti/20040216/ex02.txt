@@ -1,0 +1,62 @@
+Protezione
+----------
+
+I moderni sistemi operativi devono garantire la protezione della
+memoria del kernel e di quella degli altri programmi.
+
+Si aggiungono due registri che determinano l’intervallo
+degli indirizzi legali a cui un programma può avere
+accesso:
+* Base register
+  contiene il minimo indirizzo legale di memoria fisica
+* Limit register
+  contiene le dimensioni dell’intervallo legale. 
+
+... diagramma ... u01s01 ...
+
+La memoria al di fuori da questo intervallo è protetta
+(user mode versus kernel mode).
+I moderni sistemi operativi permettono ovviamente anche la
+rilocazione in memoria del programma.
+Lo stato corrente e i parametri sono memorizzati nello
+stack del processo.
+
+
+Kernel monolitico
+-----------------
+
+Nell'approccio monolitico (i.e., MS-DOS, UNIX originale) il sistema
+operativo risulta piuttosto piccolo e limitato.
+In tali apporcci il sistema operativo consiste normalmente di 2
+parti:
+* programmi di sistema
+* kernel
+Il kernel e' l’interfaccia al livello fisico dell’hardware, interfaccia
+realizzata attraverso le system call.
+Fornisce le funzioni relative al file system, gestione della memoria
+(il file system) e molte altre funzioni.
+L'I/O avviene attraverso gestione degli interrupt hardware, i.e., il
+dispositivo richiede un servizio e la CPU interrompe la sua azione
+per effettuarlo.
+
+La struttura monolitica e' poi evoluta in quella stratificata, in cui
+il sistema operativo e' suddiviso in moduli.
+
+
+
+Microkernel
+-----------
+
+Storicamente i sistemi operativi erano diventati troppo estesi.
+Cosi' negli anni '80 la Carniege Mellon University ha proposto il
+Mach, i.e., un microkernel.
+L'idea era quella di rimuovere dal kernel tutte le funzionalita'
+non essenziali, spostandole a livello utente o di sistema.
+La funzione principale del microkernel e' quella di fornire
+funzionalita' di comunicazione tra i programmi e i vari servizi.
+Sono facili da manutenere (le modifiche7qggiunte sono generalmente
+effettuare fuori dal kernel) ma permettono prestazioni ridotte.
+Windows NT era basato su un microkernel ma aveva prestazioni minori
+rispetto a Windows 95.
+Le comunicazioni si realizzano mediante lo scambio di messaggi tra
+le applicazioni e il kernel.

@@ -1,0 +1,66 @@
+Interruzioni (o interruzioni hardware)
+--------------------------------------
+
+Permettono il controllo dei dispositivi hardware.
+In pratica sono richieste asincrone che giungono alla CPU su una
+apposita linea.
+Sono normalmente inviate da dispositivi hardware (e.g., controller)
+che hanno necessita' di ottenere il servizio da parte della CPU.
+La CPU (il controller di interruzioni) controlla la linea al termine
+di ogni istruzione.
+Nel caso riceva una richiesta, agisce interrompendo quanto in esecuzione
+ed eseguendo una specifica routine di interruzione il cui indirizzo e'
+generalmente indicato nel vettore di interrupt.
+Al termine del servizio viene ripreso il flusso standard.
+
+
+
+Trap (o eccezioni o interruzioni software)
+------------------------------------------
+
+Un segnale di eccezione viene normalmente generato da un programma
+in esecuzione a seguito di un evento eccezionale, i.e.,
+divisione per zero, accesso ad area di memoria protetta, etc.
+Normalmente tali eventi sono riconosciuti dall'architettura della CPU.
+In altri casi sono i programma ad effettuare richieste esplicite,
+proprio attraverso delle "system call", considerabili quali trap.
+La gestione e' simili a quella delle interruzioni hardware.
+
+
+
+System call
+-----------
+
+Interfaccia tra processi e sistema operativo.
+Punti di servizio attraverso i quali i programmi chiedono servizi al
+kernel, ovvero utilizzate dal programmatore (programmi) per fare
+chiamate al kernel.
+Sono utilizzate in maniera simile alle funzioni standard ma allo scopo
+di effettuare operazioni privilegiate.
+Per questo motivo vendono eseguite nello spazio del kernel.
+Linux include circa 250 system call.
+Normalmente ne e' fornito il prototipo in linguaggio C, indipendentemente
+dal tipo di implementazione utilizzata.
+I parametri al sistema operativo sono pasati tramite:
+- i registri del sistema
+- un blocco di memoria centrale, il cui indirizzo iniziale viene
+  trasmesso tramite un registro
+- tramite la pila/stack
+Esempi: open, read, write, close, fork, exit, wait, getpid, etc.
+
+
+
+Chiamata a funzione
+-------------------
+
+L'esecuzione dei programmi avviene normalmente in maniera sequenziale,
+i.e., una istruzione dopo l'altra.
+Una delle tecniche per interrompere tale flusso e' chiamare una
+funzione.
+Una chiamata a funzione corrisponde all'esecuzione di un tratto di
+codice definito nello spazio utente (ma in un altro punto).
+Vengono eseguite nello spazio utente.
+Una system call invece si riferisce a codice di sistema.
+Inoltre queste ultime sono meno portabili e hanno maggiore overhead.
+Lo stato corrente del sistema prima della chiamata e i parametri della
+funzione sono memorizzati nello stack (struttura LIFO) del processo.

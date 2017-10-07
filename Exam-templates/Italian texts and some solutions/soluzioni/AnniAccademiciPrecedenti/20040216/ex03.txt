@@ -1,0 +1,41 @@
+Sistemi monoprocessore
+----------------------
+
+Si ottiene mediante:
+* disabilitazione dell’interrupt all’entrata (prologo o entry
+  section) della SC (sezione critica).
+* abilitazione dell’interrupt all’uscita (epilogo o exit section)
+  della SC.
+
+while (TRUE) {
+  disabilita interrupt
+  SC
+  abilita l’interrupt
+  sezione non critica
+}
+
+
+
+Sistemi multiprocessore con memoria comune
+------------------------------------------
+
+Si utilizza un “lucchetto” (lock) per controllare l’accesso.
+Il lock eì implementato mediante istruzioni “atomiche”.
+
+Una istruzione e' atomica se viene eseguita in un unico
+”memory cycle”, i.e., non può essere interrotta.
+
+Istruzioni atomiche di lock:
+* Test-And-Set su una variabile di lock
+* Swap di due variabili, di cui una di lock
+
+Ogni SC è protetta dal relativo lock
+* Il lock viene acquisito per entrare nella SC
+* Il lock viene rilasciato all’uscita della SC
+
+while (TRUE) {
+  acquisisci il lock (lock)
+  SC
+  rilascia il lock (unlock)
+  sezione non critica
+}

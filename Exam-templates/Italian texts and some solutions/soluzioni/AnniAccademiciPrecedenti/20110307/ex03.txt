@@ -1,0 +1,35 @@
+Interruzioni o interruzion hardware
+-----------------------------------
+
+Sono richieste asincrone che giungono alla CPU su un'apposita linea e
+sono inviate da dispositivi hardware (controller).
+La CPU controlla la linea al termine di ogni istruzione e agisce
+eseguendo una specifica routine di interruzione.
+Perifierici lenti sono gestiti con interrupt semplice (tastiera);
+dispositivi veloci (dischi) sono gestiti tramite DMA.
+Quindi nell'interrupt da tastiera a un tasto premuto corrisponde
+l'invio di un interrupt la gestione del carattere premuto da tastiera
+e il ritorno al flusso comune.
+
+
+
+Trap o eccezioni o interruzioni software
+----------------------------------------
+
+Un segnale di eccezione viene normalmente generato da un programma in
+esecuzione a seguito di un evento eccezionale.
+Esempi sono la divisione per zero, l'accesso in area di memoria
+protetta, etc.
+
+Un page fault e' una eccezione software riconosciuta dalla memory
+menagement unit cioe' da un dispositivo hardware.
+Essa viene generata quando un programma tenta di accedere a una pagina
+di memoria presente nello spazio di indirizzi virtuale ma non caricata
+nello spazio fisico di memoria.
+Nel caso tipico il sistame operativo cerca di gestire l'eccezione
+rendendo la pagina accessibile in memoria.
+Questo e' costoso in quanto implica una copia da hard-disk.
+Page fault eccessivi causano thrashing, ossia di paginazione degenere,
+con conseguente degradazione delle prestazioni del sistema operativo.
+L'alternativa e' uccidere il progeamma che ha generato l'eccezione.
+

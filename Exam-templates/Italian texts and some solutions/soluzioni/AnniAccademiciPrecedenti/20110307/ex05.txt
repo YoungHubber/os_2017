@@ -1,0 +1,26 @@
+1.
+vengono sostituiti i nomi delle variabili con i valori ottenendo, in
+questo caso:
+
+find ~ -name “*.txt” -size 600 -exec grep -v "^stringa’ \{} \;
+
+2.
+viene eseguita la find e per ogni file trovato viene eseguita la grep:
+
+grep -v "^stringa" (path del primo file trovato)   
+grep -v "^stringa" (path del secondo file trovato)
+.......
+grep -v "^stringa" (path dell'n-esimo file trovato)
+
+
+Correttezza del comando:
+
+il comando e' logicamente errato, poiche' occorre tener conto che il
+default per l'opzione size e' quella di blocchi da 512 byte(b).
+Il comando corretto e':
+
+find ~ -name "*.txt" -size $(($dim-100))c -exec grep -v `^cancella` \{} \; 
+
+dove c indica la dimensione in byte.
+
+
