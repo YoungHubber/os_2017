@@ -1,0 +1,2 @@
+target:
+	gcc -Wall -g -o myExe mainVet.c inVet.c outVet.c -lm

@@ -1,0 +1,25 @@
+CC = gcc
+#CC = g++
+FLAGS = -Wall -g
+includedir = ./dirI
+INCLUDEDIR = -I. -I$(includedir)
+LIB = -lm
+
+.PHONY: clean distclean
+
+target: mainVet.o inVet.o outVet.o
+	$(CC) $(FLAGS) $(INCLUDEDIR) -o myExe mainVet.o inVet.o outVet.o $(LIB)
+
+compile: 
+	gcc -Wall -g -I./dirI -c mainVet.c
+	gcc -Wall -g -I./dirI -c inVet.c
+	gcc -Wall -g -I./dirI -c outVet.c
+
+clean:
+	rm -rf *~
+	rm -rf *bak*
+	rm -rf core
+
+distclean: clean
+	rm -rf myExe
+	rm -rf *.o
