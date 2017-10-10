@@ -1,0 +1,11 @@
+target:
+	gcc -Wall -g -o myExe mainVet.c inVet.c outVet.c -lm
+
+clean:
+	rm -rf *~
+	rm -rf *bak*
+	rm -rf core
+
+distclean: clean
+	rm -rf myExe
+	rm -rf *.o
