@@ -11,7 +11,7 @@
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
-				<Option parameters="D:\我可牛逼\os_2017\Week02\lab 2\cp_binary\a.txt D:\我可牛逼\os_2017\Week02\lab 2\cp_binary\b.txt" />
+				<Option parameters='&quot;D:\im strong\os_2017\Week02\lab 2\cp_binary\a.txt&quot; &quot;D:\im strong\os_2017\Week02\lab 2\cp_binary\b.txt&quot;' />
 				<Compiler>
 					<Add option="-g" />
 				</Compiler>
