@@ -41,7 +41,7 @@ int main(int argc, char *argv[]){
 
   pid=fork();
   if (pid == 0) {
-    fprintf(stdout, "Child 1 : mypid=%d\t *(common):%c\t common:%ld\n",
+    fprintf(stdout, "Child 1 : mypid=%d\t *(common):%c\t common:%ld\n",   //piont to diff cell addresss is same but in own domain
       getpid(), *common, (long int) common);
     *common = 'C';
     fprintf(stdout, "Child 2 : mypid=%d\t *(common):%c\t common:%ld\n",
