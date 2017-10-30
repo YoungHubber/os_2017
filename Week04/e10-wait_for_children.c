@@ -1,4 +1,4 @@
-/*
+c/*
  * - a grandchild process can synchronize with its grandparent process?
  * - or every parent process waits only for its chidren?
  */
@@ -26,7 +26,7 @@ main (
     fprintf (stdout, "#Fc: PID=%d ... end-wait, retPID=%d\n", getpid(), retPid);
     exit (0);
 
-  } 
+  }
   else { //Child
     pid = fork();
     if (pid > 0) { // Child
@@ -38,7 +38,7 @@ main (
       fprintf (stdout, "  C1b: PID=%d ... end-wait, retPID=%d\n", getpid(), retPid);
       exit (0);
 
-    } 
+    }
     else {
 
       // Child of Child
@@ -47,7 +47,7 @@ main (
       fprintf (stdout, "    C11b: PID=%d ... going to exit\n", getpid());
       exit (0);
 
-    }  
+    }
   }
 
   fprintf (stdout, "Never Reached\n");
