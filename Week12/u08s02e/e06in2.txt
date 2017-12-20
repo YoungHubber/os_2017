@@ -1,0 +1,3 @@
+libro ora pagina
+orologio numero
+cifra stringa

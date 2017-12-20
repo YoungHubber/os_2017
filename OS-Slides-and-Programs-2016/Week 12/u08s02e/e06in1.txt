@@ -1,0 +1,7 @@
+libro book
+libri books
+pagina page
+pagine pages
+numero number
+cifra digit
+stringa string

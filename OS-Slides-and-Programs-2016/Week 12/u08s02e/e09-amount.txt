@@ -1,0 +1,9 @@
+Book 3
+Pen 10
+Pencil 4
+Book 2
+Pen 20
+Pencil 3
+Eraser 3
+Book 8
+Eraser 1

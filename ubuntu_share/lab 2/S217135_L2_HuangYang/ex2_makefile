@@ -1,0 +1,10 @@
+target:
+	gcc mycat.c -o mycat
+
+install:
+	mkdir ../bin
+	cp mycat ../bin
+clean:
+	rm mycat
+disclean:
+	rm -rf ../bin
