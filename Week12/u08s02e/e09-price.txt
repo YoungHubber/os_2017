@@ -1,0 +1,8 @@
+Book 50.5
+Pen 5.4
+Pencil 2.0
+Book 20.5
+Pen 4.2
+Pencil 1.0
+Book 18.2
+Jotter 12.3

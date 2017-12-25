@@ -1,0 +1,17 @@
+#target:
+#	gcc -Wall -g -I./dirI -o myExe mainVet.c inVet.c outVet.c -lm
+
+clean:
+	rm -rf *~
+	rm -rf *bak*
+	rm -rf core
+
+#target:
+#	gcc -Wall -g -o myExe mainVet.c inVet.c outVet.c -lm
+
+
+#.PHONY: clean distclean
+
+distclean: clean
+	rm -rf myExe
+	rm -rf *.o

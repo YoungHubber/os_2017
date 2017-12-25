@@ -1,0 +1,5 @@
+target:
+	gcc -c mainVet.c
+	gcc -c inVet.c
+	gcc -c outVet.c
+	gcc -o myExe mainVet.o inVet.o outVet.o
